@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unetra HR Solutions - Jobs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #10b981;
+      --secondary-dark: #059669;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Updated Navbar Styles */
+    .navbar {
+      padding: 0.75rem 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      height: 70px; /* Fixed height */
+    }
+    
+    .navbar-brand {
+      padding: 0;
+    }
+    
+    .navbar-brand img {
+      max-height: 40px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav {
+      align-items: center;
+    }
+    
+    .navbar-nav .nav-link {
+      color: #fff;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      position: relative;
+    }
+    
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: #2563eb;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 50%;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #2563eb;
+    }
+    
+    /* Fix navbar toggler color for dark navbar */
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    .hero-section {
+      padding: 9rem 0 5rem;
+      background: linear-gradient(135deg, #f6f9fe 0%, #eef1f5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+    }
+    
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 2px;
+    }
+    
+    .section-desc {
+      color: var(--gray);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+    
+    .job-hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .job-hero-text {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+    
+    /* Job Card Styles */
+    .jobs-section {
+      padding: 6rem 0;
+      background-color: #fff;
+    }
+    
+    .job-filters {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 16px;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .filter-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+    
+    .form-label {
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-select, .form-control {
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-select:focus, .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.1);
+    }
+    
+    .job-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--light-gray);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .job-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+    
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .job-badge {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .job-info {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .job-info-item {
+      display: flex;
+      align-items: center;
+      color: var(--gray);
+      margin-right: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-info-item i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    .job-details {
+      margin-top: 1.5rem;
+      color: var(--gray);
+    }
+    
+    .job-details-title {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .job-bookmark {
+      margin-left: auto;
+      font-size: 1.3rem;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .job-bookmark:hover {
+      color: var(--primary);
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    
+    .page-item {
+      margin: 0 0.3rem;
+    }
+    
+    .page-link {
+      border: none;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--gray);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .page-link:hover {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+    }
+    
+    .page-item.active .page-link {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Job Application Form */
+    .application-modal .modal-content {
+      border-radius: 16px;
+      border: none;
+      overflow: hidden;
+    }
+    
+    .application-modal .modal-header {
+      border-bottom: none;
+      padding: 2rem 2rem 0;
+    }
+    
+    .application-modal .modal-body {
+      padding: 2rem;
+    }
+    
+    .application-modal .modal-footer {
+      border-top: none;
+      padding: 0 2rem 2rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+      text-align: center;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-desc {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+    
+    .btn-pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: #fff;
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-logo {
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      max-width: 300px;
+    }
+    
+    .footer-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+      padding-left: 5px;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .social-icons li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons li a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 992px) {
+      .job-hero-title {
+        font-size: 2.5rem;
+      }
+      .navbar {
+        padding: 0.5rem 0;
+      }
+      .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 1rem;
+        border-radius: 0 0 10px 10px;
+        margin-top: 0.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 6rem 0 4rem;
+      }
+      
+      .job-hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .job-filters {
+        padding: 1.5rem;
+      }
+      
+      .job-card {
+        padding: 1.5rem;
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+ 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="asset/images/logo.png" alt="Unetra Logo" width="130" height="auto" class="d-inline-block align-text-top" id="logo">
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="field.html">Expertise</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="service.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="job.html">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+          <h1 class="job-hero-title">Career Opportunities</h1>
+          <p class="job-hero-text">Explore exciting job openings across multiple industries and take the next step in your professional journey with Unetra HR Solutions.</p>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <img src="/api/placeholder/500/400" class="img-fluid rounded-4" alt="Career Opportunities" style="max-width: 80%; filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jobs Section -->
+  <section class="jobs-section">
+    <div class="container">
+      <div class="row">
+        <!-- Filter Section -->
+        <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-duration="1000">
+          <div class="job-filters">
+            <h3 class="filter-title">Find Your Perfect Job</h3>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="location" class="form-label">Location</label>
+                <select class="form-select" id="location">
+                  <option value="">All Locations</option>
+                  <option value="bangalore">Bangalore</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="pune">Pune</option>
+                  <option value="hyderabad">Hyderabad</option>
+                </select>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="industry" class="form-label">Industry</label>
+                <select class="form-select" id="industry">
+                  <option value="">All Industries</option>
+                  <option value="it">IT</option>
+                  <option value="finance">Finance</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="manufacturing">Manufacturing</option>
+                </select>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="experience" class="form-label">Experience</label>
+                <select class="form-select" id="experience">
+                  <option value="">All Experience Levels</option>
+                  <option value="fresher">0-2 Years</option>
+                  <option value="mid">3-5 Years</option>
+                  <option value="senior">6-10 Years</option>
+                  <option value="lead">10+ Years</option>
+                </select>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="jobType" class="form-label">Job Type</label>
+                <select class="form-select" id="jobType">
+                  <option value="">All Types</option>
+                  <option value="fulltime">Full Time</option>
+                  <option value="parttime">Part Time</option>
+                  <option value="contract">Contract</option>
+                  <option value="remote">Remote</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="row mt-3">
+              <div class="col-md-9 mb-3">
+                <label for="keyword" class="form-label">Keyword</label>
+                <input type="text" class="form-control" id="keyword" placeholder="Search by title, skills, or keywords">
+              </div>
+              
+              <div class="col-md-3 mb-3 d-flex align-items-end">
+                <button class="btn btn-primary w-100" id="searchBtn" style="height: 44px;">Search Jobs</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Job Listings -->
+        <div class="col-lg-12" id="jobList">
+          <!-- Job cards will be added here dynamically -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="col-12">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="cta-title">Didn't Find Your Dream Job?</h2>
+        <p class="cta-desc">Submit your resume to our database and we'll contact you when a suitable position becomes available. Our expert recruiters are always on the lookout for exceptional talent.</p>
+        <a href="#" class="btn btn-primary btn-lg btn-pulse" data-bs-toggle="modal" data-bs-target="#resumeModal">Submit Your Resume</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Resume Modal -->
+  <div class="modal fade application-modal" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resumeModalLabel">Submit Your Resume</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="resumeForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="fullName" class="form-label">Full Name*</label>
+                <input type="text" class="form-control" id="fullName" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email Address*</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="phone" class="form-label">Phone Number*</label>
+                <input type="tel" class="form-control" id="phone" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="experience" class="form-label">Total Experience*</label>
+                <select class="form-select" id="totalExperience" required>
+                  <option value="">Select Experience</option>
+                  <option value="fresher">Fresher</option>
+                  <option value="1-2">1-2 Years</option>
+                  <option value="3-5">3-5 Years</option>
+                  <option value="6-10">6-10 Years</option>
+                  <option value="10+">10+ Years</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="currentLocation" class="form-label">Current Location*</label>
+                <input type="text" class="form-control" id="currentLocation" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="noticePeriod" class="form-label">Notice Period*</label>
+                <select class="form-select" id="noticePeriod" required>
+                  <option value="">Select Notice Period</option>
+                  <option value="immediate">Immediate</option>
+                  <option value="15days">15 Days</option>
+                  <option value="30days">30 Days</option>
+                  <option value="60days">60 Days</option>
+                  <option value="90days">90 Days</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="currentCTC" class="form-label">Current CTC (₹ LPA)*</label>
+                <input type="text" class="form-control" id="currentCTC" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="expectedCTC" class="form-label">Expected CTC (₹ LPA)*</label>
+                <input type="text" class="form-control" id="expectedCTC" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="keySkills" class="form-label">Key Skills*</label>
+              <input type="text" class="form-control" id="keySkills" placeholder="E.g., Python, React, Project Management" required>
+            </div>
+            <div class="mb-3">
+              <label for="resumeUpload" class="form-label">Upload Resume* (PDF/DOC/DOCX)</label>
+              <input type="file" class="form-control" id="resumeUpload" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Cover Letter (Optional)</label>
+              <textarea class="form-control" id="message" rows="3"></textarea>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="privacyAgree" required>
+              <label class="form-check-label" for="privacyAgree">
+                I agree to the privacy policy and consent to the processing of my personal data.
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" form="resumeForm">Submit Application</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- Job Application Modal -->
+<div class="modal fade application-modal" id="jobApplicationModal" tabindex="-1" aria-labelledby="jobApplicationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="jobApplicationModalLabel">Apply for <span id="modalJobTitle"></span></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="applicationForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="appFullName" class="form-label">Full Name*</label>
+                <input type="text" class="form-control" id="appFullName" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="appEmail" class="form-label">Email Address*</label>
+                <input type="email" class="form-control" id="appEmail" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="appPhone" class="form-label">Phone Number*</label>
+                <input type="tel" class="form-control" id="appPhone" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="appExperience" class="form-label">Total Experience*</label>
+                <select class="form-select" id="appExperience" required>
+                  <option value="">Select Experience</option>
+                  <option value="fresher">Fresher</option>
+                  <option value="1-2">1-2 Years</option>
+                  <option value="3-5">3-5 Years</option>
+                  <option value="6-10">6-10 Years</option>
+                  <option value="10+">10+ Years</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="appLocation" class="form-label">Current Location*</label>
+                <input type="text" class="form-control" id="appLocation" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="appNoticePeriod" class="form-label">Notice Period*</label>
+                <select class="form-select" id="appNoticePeriod" required>
+                  <option value="">Select Notice Period</option>
+                  <option value="immediate">Immediate</option>
+                  <option value="15days">15 Days</option>
+                  <option value="30days">30 Days</option>
+                  <option value="60days">60 Days</option>
+                  <option value="90days">90 Days</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="appCurrentCTC" class="form-label">Current CTC (₹ LPA)*</label>
+                <input type="text" class="form-control" id="appCurrentCTC" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="appExpectedCTC" class="form-label">Expected CTC (₹ LPA)*</label>
+                <input type="text" class="form-control" id="appExpectedCTC" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="appResumeUpload" class="form-label">Upload Resume* (PDF/DOC/DOCX)</label>
+              <input type="file" class="form-control" id="appResumeUpload" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="mb-3">
+              <label for="appMessage" class="form-label">Cover Letter (Optional)</label>
+              <textarea class="form-control" id="appMessage" rows="3"></textarea>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="appPrivacyAgree" required>
+              <label class="form-check-label" for="appPrivacyAgree">
+                I agree to the privacy policy and consent to the processing of my personal data.
+              </label>
+            </div>
+            <input type="hidden" id="jobId" value="">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" form="applicationForm">Submit Application</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <a href="index.html" class="footer-logo">
+            <img src="asset/images/logo.png" alt="Unetra Logo" width="130" height="auto">
+          </a>
+          <p class="footer-desc">Unetra HR Solutions is a leading recruitment and talent acquisition partner helping businesses find exceptional talent and candidates discover rewarding careers.</p>
+          <ul class="social-icons">
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="field.html">Industries</a></li>
+            <li><a href="job.html">Job Openings</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="service.html">Permanent Staffing</a></li>
+            <li><a href="service.html">Contract Staffing</a></li>
+            <li><a href="service.html">Executive Search</a></li>
+            <li><a href="service.html">HR Consulting</a></li>
+            <li><a href="service.html">RPO Services</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3 col-md-4">
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt me-2"></i> Unetra HR Solutions, Mumbai, India</li>
+            <li><i class="fas fa-phone-alt me-2"></i> +91 9665199963</li>
+            <li><i class="fas fa-envelope me-2"></i> support@unetra.in</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="copyright">
+            &copy; 2025 Unetra HR Solutions. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 800,
+    });
+    
+    // Job listings data
+    const jobListings = [
+      {
+        id: 1,
+        title: "Software Developer",
+        location: "Bangalore",
+        experience: "3-5 Years",
+        ctc: "8-10 LPA",
+        jobType: "Full Time",
+        industry: "IT",
+        badges: ["React", "Node.js", "MongoDB"],
+        postedDate: "2 days ago",
+        description: "We are looking for a skilled Software Developer proficient in React and Node.js with experience in building scalable web applications.",
+        responsibilities: [
+          "Design and implement new features and functionality",
+          "Build reusable code and libraries for future use",
+          "Optimize application for maximum speed and scalability",
+          "Collaborate with other team members and stakeholders"
+        ]
+      },
+      {
+        id: 2,
+        title: "Data Analyst",
+        location: "Mumbai",
+        experience: "6-7 Years",
+        ctc: "10-15 LPA",
+        jobType: "Full Time",
+        industry: "Finance",
+        badges: ["SQL", "Python", "Data Visualization"],
+        postedDate: "3 days ago",
+        description: "A leading financial services company is seeking an experienced Data Analyst to interpret data and analyze results using statistical techniques.",
+        responsibilities: [
+          "Develop and implement databases, data collection systems, and other strategies",
+          "Acquire data from primary or secondary data sources",
+          "Filter and clean data to identify and analyze patterns and trends",
+          "Present information using data visualization techniques"
+        ]
+      },
+      {
+        id: 3,
+        title: "Marketing Manager",
+        location: "Delhi",
+        experience: "6-7 Years",
+        ctc: "10-15 LPA",
+        jobType: "Full Time",
+        industry: "Retail",
+        badges: ["Digital Marketing", "Content Strategy", "Analytics"],
+        postedDate: "1 week ago",
+        description: "A fast-growing retail company is looking for a Marketing Manager to develop and implement marketing strategies to meet consumer needs.",
+        responsibilities: [
+          "Develop strategies and tactics to get the word out about our company",
+          "Deploy successful marketing campaigns and own their implementation from ideation to execution",
+          "Build strategic relationships and partner with key industry players, agencies and vendors",
+          "Prepare and monitor the marketing budget and track performance"
+        ]
+      },
+      {
+        id: 4,
+        title: "Product Manager",
+        location: "Pune",
+        experience: "8-10 Years",
+        ctc: "15-20 LPA",
+        jobType: "Full Time",
+        industry: "IT",
+        badges: ["Product Strategy", "Agile", "User Research"],
+        postedDate: "5 days ago",
+        description: "A leading tech company is seeking an experienced Product Manager to drive product development and go-to-market strategy.",
+        responsibilities: [
+          "Define the product vision, strategy, and roadmap",
+          "Work with engineering teams to deliver products",
+          "Analyze market data and implement best practices",
+          "Maximize value by prioritizing features and capabilities"
+        ]
+      }
+    ];
+    
+    // Populate job listings
+    function displayJobs(jobs = jobListings) {
+      const jobList = document.getElementById("jobList");
+      jobList.innerHTML = "";
+      
+      if (jobs.length === 0) {
+        jobList.innerHTML = `
+          <div class="text-center py-5">
+            <i class="fas fa-search fa-3x mb-3 text-muted"></i>
+            <h3>No jobs found</h3>
+            <p>Please try different search criteria</p>
+          </div>
+        `;
+        return;
+      }
+      
+      jobs.forEach(job => {
+        const jobCard = document.createElement("div");
+        jobCard.setAttribute("data-aos", "fade-up");
+        jobCard.setAttribute("data-aos-duration", "1000");
+        
+        let badgesHTML = '';
+        job.badges.forEach(badge => {
+          badgesHTML += `<span class="job-badge">${badge}</span>`;
+        });
+        
+        jobCard.innerHTML = `
+          <div class="job-card">
+            <h3 class="job-title">${job.title}</h3>
+            <div>
+              ${badgesHTML}
+            </div>
+            <div class="job-info">
+              <div class="job-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>${job.location}</span>
+              </div>
+              <div class="job-info-item">
+                <i class="fas fa-briefcase"></i>
+                <span>${job.experience}</span>
+              </div>
+              <div class="job-info-item">
+                <i class="fas fa-rupee-sign"></i>
+                <span>${job.ctc}</span>
+              </div>
+              <div class="job-info-item">
+                <i class="fas fa-clock"></i>
+                <span>${job.jobType}</span>
+              </div>
+              <div class="job-info-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Posted ${job.postedDate}</span>
+              </div>
+            </div>
+            <div class="job-details mt-3">
+              <p>${job.description}</p>
+            </div>
+            <div class="job-actions">
+              <button class="btn btn-primary apply-btn" data-job-id="${job.id}" data-job-title="${job.title}">Apply Now</button>
+              <a href="javascript:void(0);" class="btn-outline view-details" data-job-id="${job.id}">View Details</a>
+              <span class="job-bookmark"><i class="far fa-bookmark"></i></span>
+            </div>
+          </div>
+        `;
+        
+        jobList.appendChild(jobCard);
+      });
+      
+      // Add event listeners to apply buttons
+      document.querySelectorAll('.apply-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const jobId = this.getAttribute('data-job-id');
+          const jobTitle = this.getAttribute('data-job-title');
+          
+          document.getElementById('modalJobTitle').textContent = jobTitle;
+          document.getElementById('jobId').value = jobId;
+          
+          const modal = new bootstrap.Modal(document.getElementById('jobApplicationModal'));
+          modal.show();
+        });
+      });
+    }
+    
+    // Filter jobs
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const locationFilter = document.getElementById('location').value.toLowerCase();
+      const industryFilter = document.getElementById('industry').value.toLowerCase();
+      const experienceFilter = document.getElementById('experience').value.toLowerCase();
+      const jobTypeFilter = document.getElementById('jobType').value.toLowerCase();
+      const keywordFilter = document.getElementById('keyword').value.toLowerCase();
+      
+      const filteredJobs = jobListings.filter(job => {
+        // Check if job matches all selected filters
+        const matchesLocation = !locationFilter || job.location.toLowerCase().includes(locationFilter);
+        const matchesIndustry = !industryFilter || job.industry.toLowerCase().includes(industryFilter);
+        const matchesExperience = !experienceFilter || job.experience.toLowerCase().includes(experienceFilter);
+        const matchesJobType = !jobTypeFilter || job.jobType.toLowerCase().includes(jobTypeFilter);
+        
+        // Check if job matches keyword (title, badges)
+        const matchesKeyword = !keywordFilter || 
+          job.title.toLowerCase().includes(keywordFilter) || 
+          job.badges.some(badge => badge.toLowerCase().includes(keywordFilter)) ||
+          job.description.toLowerCase().includes(keywordFilter);
+        
+        return matchesLocation && matchesIndustry && matchesExperience && matchesJobType && matchesKeyword;
+      });
+      
+      displayJobs(filteredJobs);
+    });
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      displayJobs();
+      
+      // Form submission handlers
+      document.getElementById('applicationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Your application has been submitted successfully!');
+        const modal = bootstrap.Modal.getInstance(document.getElementById('jobApplicationModal'));
+        modal.hide();
+      });
+      
+      document.getElementById('resumeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Your resume has been submitted successfully!');
+        const modal = bootstrap.Modal.getInstance(document.getElementById('resumeModal'));
+        modal.hide();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,927 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unetra HR Solutions - About Us</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #10b981;
+      --secondary-dark: #059669;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+     /* Updated Navbar Styles */
+  .navbar {
+    padding: 0.75rem 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: 70px; /* Fixed height */
+  }
+  
+  .navbar-brand {
+    padding: 0;
+  }
+  
+  .navbar-brand img {
+    max-height: 40px;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-nav {
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    position: relative;
+  }
+  
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #2563eb;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 50%;
+  }
+  
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #2563eb;
+  }
+  
+  /* Fix navbar toggler color for dark navbar */
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+    
+    .hero-section {
+      padding: 9rem 0 5rem;
+      background: linear-gradient(135deg, #f6f9fe 0%, #eef1f5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+    }
+    
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 2px;
+    }
+    
+    .section-desc {
+      color: var(--gray);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+    
+    .about-hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .about-hero-text {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+    
+    .about-section {
+      padding: 6rem 0;
+      background-color: #fff;
+    }
+    
+    .about-content {
+      padding-right: 2rem;
+    }
+    
+    .about-header {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: var(--dark);
+    }
+    
+    .about-text {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .about-image {
+      transition: all 0.5s ease;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image img {
+      transition: all 0.5s ease;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .vision-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .vision-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--dark);
+    }
+    
+    .vision-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray);
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .values-section {
+      padding: 6rem 0;
+      background-color: #fff;
+    }
+    
+    .value-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--light-gray);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+    
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .value-desc {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    
+    .team-section {
+      padding: 6rem 0;
+      background-color: var(--light);
+    }
+    
+    .team-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .team-img-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .team-img {
+      transition: all 0.5s ease;
+    }
+    
+    .team-card:hover .team-img {
+      transform: scale(1.05);
+    }
+    
+    .team-body {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .team-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .team-position {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .team-social li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .team-social li a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .cta-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+      text-align: center;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-desc {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: #fff;
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-logo {
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      max-width: 300px;
+    }
+    
+    .footer-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+      padding-left: 5px;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .social-icons li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons li a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 992px) {
+      .about-hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .about-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+      }
+      .navbar {
+        padding: 0.5rem 0;
+      }
+      .navbar-collapse {
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 1rem;
+      border-radius: 0 0 10px 10px;
+      margin-top: 0.5rem;
+    }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 6rem 0 4rem;
+      }
+      
+      .about-hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-header {
+        font-size: 2rem;
+      }
+      
+      .vision-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+      }
+    }
+    
+    .btn-pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+
+<body>
+ 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="asset/images/logo.png" alt="Unetra Logo" width="130" height="auto" class="d-inline-block align-text-top" id="logo">
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="field.html">Expertise</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="service.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="job.html">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+          <h1 class="about-hero-title">About Unetra HR Solutions</h1>
+          <p class="about-hero-text">Established in 2019 by a team of seasoned HR managers, Unetra HR Solutions has become a trusted name in recruitment and HR consulting, delivering excellence across multiple industries.</p>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <img src="/api/placeholder/500/400" class="img-fluid rounded-4" alt="About Unetra" style="max-width: 80%; filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Image Content -->
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+          <div class="about-image">
+            <img src="asset/images/about-us.png" class="img-fluid w-100" alt="About Us Image">
+          </div>
+        </div>
+        
+        <!-- Text Content -->
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="about-content">
+            <h2 class="about-header">Trusted, 5+ Years Experienced & Specialists</h2>
+            <p class="about-text">
+              With deep expertise in bulk hiring, lateral hiring, and leadership recruitment, we ensure that our clients receive well-screened, high-quality candidates suited to their organizational needs. Our strategic approach and commitment to excellence make us more than just a vendor—we function as an extension of your in-house HR team.
+            </p>
+            <p class="about-text">
+              Our strength lies in providing high-quality candidates who not only meet job requirements but also align with your company's culture and values. We prioritize building long-term partnerships with both clients and candidates by offering personalized, tailored solutions.
+            </p>
+            <p class="about-text">
+              At Unetra HR Solutions, we believe in giving back to the community. We pledge to share a portion of our profits to support meaningful causes, including:
+            </p>
+            <ul class="about-text">
+              <li>Feed the Community programs for underprivileged individuals</li>
+              <li>Feed the Strays initiatives and dog food drives for shelters</li>
+              <li>Support for animal rescues and adopting shelters</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission Section -->
+  <section class="vision-section">
+    <div class="container">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="vision-title">Our Vision and Mission</h2>
+        <p class="vision-text">
+          At Unetra, our mission is to empower businesses by providing expert manpower consulting services that align with their strategic goals. We are committed to offering top-tier talent at the right time, helping organizations drive growth, innovation, and success with a skilled workforce. We aim to build long-term partnerships that enhance productivity, foster collaboration, and create sustainable value.
+        </p>
+        <p class="vision-text">
+          Our vision is to be the leading manpower consulting firm, trusted by businesses for high-quality, tailored staffing solutions that meet both short-term needs and long-term objectives. We aspire to be a catalyst for positive change in the workforce, where every placement contributes to building stronger, more resilient companies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-desc mx-auto">The principles that guide our approach to business and relationships.</p>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Value 1 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="value-title">Integrity</h3>
+            <p class="value-desc">We uphold the highest ethical standards in all our business relationships and practices, ensuring transparency and honesty in every interaction.</p>
+          </div>
+        </div>
+        
+        <!-- Value 2 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3 class="value-title">Excellence</h3>
+            <p class="value-desc">We are committed to delivering exceptional quality and service in everything we do, constantly striving to exceed expectations.</p>
+          </div>
+        </div>
+        
+        <!-- Value 3 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="value-title">Partnership</h3>
+            <p class="value-desc">We build lasting relationships with our clients and candidates, working collaboratively to achieve shared goals and mutual success.</p>
+          </div>
+        </div>
+        
+        <!-- Value 4 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="value-title">Innovation</h3>
+            <p class="value-desc">We embrace new ideas and approaches, continuously improving our processes and services to stay ahead in a dynamic market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Industries We Serve</h2>
+        <p class="section-desc mx-auto">We specialize in delivering top-quality recruitment services across various industries.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="value-title">Insurance</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="value-title">EdTech</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h3 class="value-title">Pharma</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="250" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <h3 class="value-title">BFSI</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3 class="value-title">Real Estate</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="350" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="value-title">IT</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-industry"></i>
+            </div>
+            <h3 class="value-title">Manufacturing</h3>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="450" data-aos-duration="1000">
+          <div class="value-card text-center">
+            <div class="value-icon mx-auto">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3 class="value-title">Retail</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="cta-title">Ready to Work with Us?</h2>
+        <p class="cta-desc">Partner with Unetra HR Solutions and access the best talent pool for your business needs. Let's build a stronger workforce together.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg btn-pulse">Contact Us Today</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <img src="asset/images/logo.png" alt="Unetra Logo" width="150" height="auto" class="footer-logo">
+          <p class="footer-desc">Unetra HR Solutions is dedicated to connecting skilled professionals with global career opportunities, fostering business growth through expert talent acquisition.</p>
+          <ul class="social-icons">
+            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/unetra-hr-solutions-llp/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Our Services</a></li>
+            <li><a href="field.html">Expertise</a></li>
+            <li><a href="job.html">Current Jobs</a></li>
+            <li><a href="channle.html">Channel Partners</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Talent Acquisition</a></li>
+            <li><a href="#">Cybersecurity</a></li>
+            <li><a href="#">HR Outsourcing</a></li>
+            <li><a href="#">Skills Development</a></li>
+            <li><a href="#">Tech Solutions</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4 col-lg-4">
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt me-2"></i> Unetra HR Solutions, Mumbai, India</li>
+            <li><i class="fas fa-phone me-2"></i> +91 9665199963</li>
+            <li><i class="fas fa-envelope me-2"></i> support@unetra.com</li>
+          </ul>
+          <div class="mt-3">
+            <form>
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center copyright">
+        <p>Copyright © Prathmesh 2025 | Unetra HR Consultancy. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.style.padding = '0.5rem 0';
+      navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+      navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+      navbar.style.height = '60px';
+    } else {
+      navbar.style.padding = '0.75rem 0';
+      navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      navbar.style.height = '70px';
+    }
+  });
+    
+    // Animation for service cards
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.animate-card').forEach((card) => {
+      observer.observe(card);
+    });
+    
+    // Download brochure button
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      alert('Thank you for your interest! The brochure will be downloaded shortly.');
+      // In a real implementation, this would trigger a file download
+    });
+    
+    // Counter animation for stats
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-count'));
+      const duration = 2000;
+      const step = target / duration * 10;
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += step;
+        if (current > target) {
+          el.textContent = target.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (el.textContent.includes('%') ? '%' : '+');
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (el.textContent.includes('%') ? '%' : '+');
+        }
+      }, 10);
+    }
+    
+    // Trigger counter animation when in viewport
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.stat-number').forEach(counter => {
+            animateCounter(counter);
+          });
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    statObserver.observe(document.querySelector('.stats-section'));
+  </script>
+
+</body>
+</html>
